@@ -1,0 +1,1404 @@
+<head>
+ <meta charset="UTF-8">
+    <meta name="description" content="Oyun Sunucuları için kolay ve harika api sistemi">
+  <meta property="og:image" content="https://img.pngio.com/code-coding-desktop-development-game-play-programming-icon-game-programming-png-512_512.png">
+    <title>Oyun Sunuculları için api</title> 
+    <meta name="keywords" content="oyun sunucu istatistik, discord.js oyun sunucusu, codare, codare kod paylaşım, oyun sunucucusu için api, oyun sunucu apisi, oyun sunucusu, oyun server api, game server api, oyun api, sunucu bilgi, oyun bilgi, discord.js oyun sunucusu istatistik"/>  
+<meta name="author" content="Furtsy#0827">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  
+  <style>
+    code{
+      color: black;
+    }
+
+  
+  </style>
+</head>
+<script type="text/javascript">
+
+function IE(e) {
+     if (navigator.appName == "Microsoft Internet Explorer" && (event.button == "2" || event.button == "3")) {
+          alert('sağtık engel aktif!');
+          return false;
+     }
+}
+function NS(e) {
+     if (document.layers || (document.getElementById && !document.all)) {
+          if (e.which == "2" || e.which == "3") {
+               alert('sağtık engel aktif!');
+               return false;
+          }
+     }
+}
+document.onmousedown=IE;document.onmouseup=NS;document.oncontextmenu=new Function("return false");
+//-->
+
+</script>
+
+<div class="page-header" data-parallax="true" style="background-image: url('https://image.winudf.com/v2/image/Y29tLmFobWFkemFraWFsZHk4MC53aGl0ZXdhbGxwYXBlcmhkX3NjcmVlbnNob3RzXzNfNDA0NzJlNDI/screen-3.jpg?fakeurl=1&type=.jpg'); ">
+
+  <!--NAVBAR BAŞLANGIC -->
+  
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Oyun Api</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Ana Sayfa <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://oyun-apisi.glitch.me/kullanim">Kullanımı</a>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+  
+  <!-- NAVBAR SON -->
+<table>
+    <thead>
+    <tr>
+    <th>Oyun İdleri</th>
+    <th>Oyun İsimleri</th>
+    <th>Kullanım:
+        <pre><b><a data-test="test" rel="nofollow" style="word-wrap: break-word;" target="_blank" onclick="return dhExternallinkRedirect(this)" href="https://oyun-apisi.glitch.me/kullanim" data-href="kullanımbilgi.html">Bilgi için bana tıkla</a></b>        
+   
+<b><a data-test="test" rel="nofollow" style="word-wrap: break-word;" target="_blank" onclick="return dhExternallinkRedirect(this)" href="https://github.com/Furtsy" data-href="kullanımbilgi.html">Github Adresim</a></b>    
+ Made by Kong#0422</pre>
+    </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td><code>7d2d</code></td>
+    <td>7 Days to Die (2013)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>ageofchivalry</code></td>
+    <td>Age of Chivalry (2007)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>aoe2</code></td>
+    <td>Age of Empires 2 (1999)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>alienarena</code></td>
+    <td>Alien Arena (2004)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>alienswarm</code></td>
+    <td>Alien Swarm (2010)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>avp2</code></td>
+    <td>Aliens versus Predator 2 (2001)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>avp2010</code></td>
+    <td>Aliens vs. Predator (2010)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>americasarmy</code></td>
+    <td>America's Army (2002)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>americasarmy2</code></td>
+    <td>America's Army 2 (2003)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>americasarmy3</code></td>
+    <td>America's Army 3 (2009)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>americasarmypg</code></td>
+    <td>America's Army: Proving Grounds (2015)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>arcasimracing</code></td>
+    <td>Arca Sim Racing (2008)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>arkse</code></td>
+    <td>Ark: Survival Evolved (2017)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>arma2</code></td>
+    <td>ARMA 2 (2009)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>arma2oa</code></td>
+    <td>ARMA 2: Operation Arrowhead (2010)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>arma3</code></td>
+    <td>ARMA 3 (2013)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>arma</code></td>
+    <td>ARMA: Armed Assault (2007)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>armacwa</code></td>
+    <td>ARMA: Cold War Assault (2011)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>armar</code></td>
+    <td>ARMA: Resistance (2011)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>armagetron</code></td>
+    <td>Armagetron Advanced (2001)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>assettocorsa</code></td>
+    <td>Assetto Corsa (2014)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>atlas</code></td>
+    <td>Atlas (2018)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>baldursgate</code></td>
+    <td>Baldur's Gate (1998)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>bat1944</code></td>
+    <td>Battalion 1944 (2018)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>bf1942</code></td>
+    <td>Battlefield 1942 (2002)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>bf2</code></td>
+    <td>Battlefield 2 (2005)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>bf2142</code></td>
+    <td>Battlefield 2142 (2006)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>bf3</code></td>
+    <td>Battlefield 3 (2011)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>bf4</code></td>
+    <td>Battlefield 4 (2013)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>bfh</code></td>
+    <td>Battlefield Hardline (2015)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>bfv</code></td>
+    <td>Battlefield Vietnam (2004)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>bfbc2</code></td>
+    <td>Battlefield: Bad Company 2 (2010)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>breach</code></td>
+    <td>Breach (2011)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>breed</code></td>
+    <td>Breed (2004)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>brink</code></td>
+    <td>Brink (2011)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>buildandshoot</code></td>
+    <td>Build and Shoot / Ace of Spades Classic (2012)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>cod</code></td>
+    <td>Call of Duty (2003)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>cod2</code></td>
+    <td>Call of Duty 2 (2005)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>cod3</code></td>
+    <td>Call of Duty 3 (2006)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>cod4</code></td>
+    <td>Call of Duty 4: Modern Warfare (2007)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>codmw2</code></td>
+    <td>Call of Duty: Modern Warfare 2 (2009)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>codmw3</code></td>
+    <td>Call of Duty: Modern Warfare 3 (2011)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>coduo</code></td>
+    <td>Call of Duty: United Offensive (2004)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>codwaw</code></td>
+    <td>Call of Duty: World at War (2008)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>callofjuarez</code></td>
+    <td>Call of Juarez (2006)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>chaser</code></td>
+    <td>Chaser (2003)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>chrome</code></td>
+    <td>Chrome (2003)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>codenameeagle</code></td>
+    <td>Codename Eagle (2000)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>cacrenegade</code></td>
+    <td>Command and Conquer: Renegade (2002)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>commandos3</code></td>
+    <td>Commandos 3: Destination Berlin (2003)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>conanexiles</code></td>
+    <td>Conan Exiles (2018)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>contagion</code></td>
+    <td>Contagion (2011)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>contactjack</code></td>
+    <td>Contract J.A.C.K. (2003)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>cs15</code></td>
+    <td>Counter-Strike 1.5 (2002)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>cs16</code></td>
+    <td>Counter-Strike 1.6 (2003)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>cs2d</code></td>
+    <td>Counter-Strike: 2D (2004)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>cscz</code></td>
+    <td>Counter-Strike: Condition Zero (2004)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>csgo</code></td>
+    <td>Counter-Strike: Global Offensive (2012)</td>
+    </tr>
+    <tr>
+    <td><code>css</code></td>
+    <td>Counter-Strike: Source (2004)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>crossracing</code></td>
+    <td>Cross Racing Championship Extreme 2005 (2005)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>crysis</code></td>
+    <td>Crysis (2007)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>crysis2</code></td>
+    <td>Crysis 2 (2011)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>crysiswars</code></td>
+    <td>Crysis Wars (2008)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>daikatana</code></td>
+    <td>Daikatana (2000)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>dnl</code></td>
+    <td>Dark and Light (2017)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>dmomam</code></td>
+    <td>Dark Messiah of Might and Magic (2006)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>darkesthour</code></td>
+    <td>Darkest Hour: Europe '44-'45 (2008)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>dod</code></td>
+    <td>Day of Defeat (2003)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>dods</code></td>
+    <td>Day of Defeat: Source (2005)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>doi</code></td>
+    <td>Day of Infamy (2017)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>daysofwar</code></td>
+    <td>Days of War (2017)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>dayz</code></td>
+    <td>DayZ (2018)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>dayzmod</code></td>
+    <td>DayZ Mod (2013)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>deadlydozenpt</code></td>
+    <td>Deadly Dozen: Pacific Theater (2002)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>dh2005</code></td>
+    <td>Deer Hunter 2005 (2004)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>descent3</code></td>
+    <td>Descent 3 (1999)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>deusex</code></td>
+    <td>Deus Ex (2000)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>devastation</code></td>
+    <td>Devastation (2003)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>dinodday</code></td>
+    <td>Dino D-Day (2011)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>dirttrackracing2</code></td>
+    <td>Dirt Track Racing 2 (2002)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>doom3</code></td>
+    <td>Doom 3 (2004)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>dota2</code></td>
+    <td>Dota 2 (2013)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>drakan</code></td>
+    <td>Drakan: Order of the Flame (1999)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>empyrion</code></td>
+    <td>Empyrion - Galactic Survival (2015)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>etqw</code></td>
+    <td>Enemy Territory: Quake Wars (2007)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>fear</code></td>
+    <td>F.E.A.R. (2005)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>f1c9902</code></td>
+    <td>F1 Challenge '99-'02 (2002)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>farcry</code></td>
+    <td>Far Cry (2004)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>farcry2</code></td>
+    <td>Far Cry 2 (2008)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>f12002</code></td>
+    <td>Formula One 2002 (2002)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>fortressforever</code></td>
+    <td>Fortress Forever (2007)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>ffow</code></td>
+    <td>Frontlines: Fuel of War (2008)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>garrysmod</code></td>
+    <td>Garry's Mod (2004)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>geneshift</code><br><code>mutantfactions</code></td>
+    <td>Geneshift (2017)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>giantscitizenkabuto</code></td>
+    <td>Giants: Citizen Kabuto (2000)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>globaloperations</code></td>
+    <td>Global Operations (2002)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>ges</code></td>
+    <td>GoldenEye: Source (2010)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>gore</code></td>
+    <td>Gore: Ultimate Soldier (2002)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>fivem</code></td>
+    <td>Grand Theft Auto V - FiveM (2013)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>mtasa</code></td>
+    <td>Grand Theft Auto: San Andreas - Multi Theft Auto (2004)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>mtavc</code></td>
+    <td>Grand Theft Auto: Vice City - Multi Theft Auto (2002)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>gunmanchronicles</code></td>
+    <td>Gunman Chronicles (2000)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>hl2dm</code></td>
+    <td>Half-Life 2: Deathmatch (2004)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>hldm</code></td>
+    <td>Half-Life Deathmatch (1998)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>hldms</code></td>
+    <td>Half-Life Deathmatch: Source (2005)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>halo</code></td>
+    <td>Halo (2003)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>halo2</code></td>
+    <td>Halo 2 (2007)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>hll</code></td>
+    <td>Hell Let Loose</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>heretic2</code></td>
+    <td>Heretic II (1998)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>hexen2</code></td>
+    <td>Hexen II (1997)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>had2</code></td>
+    <td>Hidden &amp; Dangerous 2 (2003)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>homefront</code></td>
+    <td>Homefront (2011)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>homeworld2</code></td>
+    <td>Homeworld 2 (2003)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>hurtworld</code></td>
+    <td>Hurtworld (2015)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>igi2</code></td>
+    <td>I.G.I.-2: Covert Strike (2003)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>il2</code></td>
+    <td>IL-2 Sturmovik (2001)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>insurgency</code></td>
+    <td>Insurgency (2014)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>insurgencysandstorm</code></td>
+    <td>Insurgency: Sandstorm (2018)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>ironstorm</code></td>
+    <td>Iron Storm (2002)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>jamesbondnightfire</code></td>
+    <td>James Bond 007: Nightfire (2002)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>jc2mp</code></td>
+    <td>Just Cause 2 - Multiplayer (2010)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>jc3mp</code></td>
+    <td>Just Cause 3 - Multiplayer (2017)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>kspdmp</code></td>
+    <td>Kerbal Space Program - DMP Multiplayer (2015)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>killingfloor</code></td>
+    <td>Killing Floor (2009)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>killingfloor2</code></td>
+    <td>Killing Floor 2 (2016)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>kingpin</code></td>
+    <td>Kingpin: Life of Crime (1999)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>kisspc</code></td>
+    <td>Kiss: Psycho Circus: The Nightmare Child (2000)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>kzmod</code></td>
+    <td>Kreedz Climbing (2017)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>left4dead</code></td>
+    <td>Left 4 Dead (2008)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>left4dead2</code></td>
+    <td>Left 4 Dead 2 (2009)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>m2mp</code></td>
+    <td>Mafia II - Multiplayer (2010)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>m2o</code></td>
+    <td>Mafia II - Online (2010)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>moh2010</code></td>
+    <td>Medal of Honor (2010)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>mohab</code></td>
+    <td>Medal of Honor: Airborne (2007)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>mohaa</code></td>
+    <td>Medal of Honor: Allied Assault (2002)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>mohbt</code></td>
+    <td>Medal of Honor: Allied Assault Breakthrough (2003)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>mohsh</code></td>
+    <td>Medal of Honor: Allied Assault Spearhead (2002)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>mohpa</code></td>
+    <td>Medal of Honor: Pacific Assault (2004)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>mohwf</code></td>
+    <td>Medal of Honor: Warfighter (2012)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>medievalengineers</code></td>
+    <td>Medieval Engineers (2015)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>minecraft</code><br><code>minecraftping</code></td>
+    <td>Minecraft (2009)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>minecraftpe</code><br><code>minecraftbe</code></td>
+    <td>Minecraft: Bedrock Edition (2011)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>mnc</code></td>
+    <td>Monday Night Combat (2011)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>mordhau</code></td>
+    <td>Mordhau (2019)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>mumble</code></td>
+    <td>Mumble - GTmurmur Plugin (2005)</td>
+    </tr>
+    <tr>
+    <td><code>mumbleping</code></td>
+    <td>Mumble - Lightweight (2005)</td>
+    </tr>
+    <tr>
+    <td><code>nascarthunder2004</code></td>
+    <td>NASCAR Thunder 2004 (2003)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>ns</code></td>
+    <td>Natural Selection (2002)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>ns2</code></td>
+    <td>Natural Selection 2 (2012)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>nfshp2</code></td>
+    <td>Need for Speed: Hot Pursuit 2 (2002)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>nab</code></td>
+    <td>Nerf Arena Blast (1999)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>netpanzer</code></td>
+    <td>netPanzer (2002)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>nwn</code></td>
+    <td>Neverwinter Nights (2002)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>nwn2</code></td>
+    <td>Neverwinter Nights 2 (2006)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>nexuiz</code></td>
+    <td>Nexuiz (2005)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>nitrofamily</code></td>
+    <td>Nitro Family (2004)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>nmrih</code></td>
+    <td>No More Room in Hell (2011)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>nolf2</code></td>
+    <td>No One Lives Forever 2: A Spy in H.A.R.M.'s Way (2002)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>nucleardawn</code></td>
+    <td>Nuclear Dawn (2011)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>openarena</code></td>
+    <td>OpenArena (2005)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>openttd</code></td>
+    <td>OpenTTD (2004)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>operationflashpoint</code><br><code>flashpoint</code></td>
+    <td>Operation Flashpoint: Cold War Crisis (2001)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>flashpointresistance</code></td>
+    <td>Operation Flashpoint: Resistance (2002)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>painkiller</code></td>
+    <td>Painkiller</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>pixark</code></td>
+    <td>PixARK (2018)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>postal2</code></td>
+    <td>Postal 2</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>prey</code></td>
+    <td>Prey</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>primalcarnage</code></td>
+    <td>Primal Carnage: Extinction</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>prbf2</code></td>
+    <td>Project Reality: Battlefield 2 (2005)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>quake1</code></td>
+    <td>Quake 1: QuakeWorld (1996)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>quake2</code></td>
+    <td>Quake 2 (1997)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>quake3</code></td>
+    <td>Quake 3: Arena (1999)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>quake4</code></td>
+    <td>Quake 4 (2005)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>quakelive</code></td>
+    <td>Quake Live (2010)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>ragdollkungfu</code></td>
+    <td>Rag Doll Kung Fu</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>r6</code></td>
+    <td>Rainbow Six</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>r6roguespear</code></td>
+    <td>Rainbow Six 2: Rogue Spear</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>r6ravenshield</code></td>
+    <td>Rainbow Six 3: Raven Shield</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>rallisportchallenge</code></td>
+    <td>RalliSport Challenge</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>rallymasters</code></td>
+    <td>Rally Masters</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>redorchestra</code></td>
+    <td>Red Orchestra</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>redorchestra2</code></td>
+    <td>Red Orchestra 2</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>redorchestraost</code></td>
+    <td>Red Orchestra: Ostfront 41-45</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>redline</code></td>
+    <td>Redline</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>rtcw</code></td>
+    <td>Return to Castle Wolfenstein</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>rfactor</code></td>
+    <td>rFactor</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>ricochet</code></td>
+    <td>Ricochet</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>riseofnations</code></td>
+    <td>Rise of Nations</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>rs2</code></td>
+    <td>Rising Storm 2: Vietnam</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>rune</code></td>
+    <td>Rune</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>rust</code></td>
+    <td>Rust</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>stalker</code></td>
+    <td>S.T.A.L.K.E.R.</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>samp</code></td>
+    <td>San Andreas Multiplayer</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>ss</code></td>
+    <td>Serious Sam</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>ss2</code></td>
+    <td>Serious Sam 2</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>shatteredhorizon</code></td>
+    <td>Shattered Horizon</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>shogo</code></td>
+    <td>Shogo</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>shootmania</code></td>
+    <td>Shootmania</td>
+    </tr>
+    <tr>
+    <td><code>sin</code></td>
+    <td>SiN</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>sinep</code></td>
+    <td>SiN Episodes</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>soldat</code></td>
+    <td>Soldat</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>sof</code></td>
+    <td>Soldier of Fortune</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>sof2</code></td>
+    <td>Soldier of Fortune 2</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>spaceengineers</code></td>
+    <td>Space Engineers</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>squad</code></td>
+    <td>Squad</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>stbc</code></td>
+    <td>Star Trek: Bridge Commander</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>stvef</code></td>
+    <td>Star Trek: Voyager - Elite Force</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>stvef2</code></td>
+    <td>Star Trek: Voyager - Elite Force 2</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>swjk2</code></td>
+    <td>Star Wars Jedi Knight II: Jedi Outcast (2002)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>swjk</code></td>
+    <td>Star Wars Jedi Knight: Jedi Academy (2003)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>swbf</code></td>
+    <td>Star Wars: Battlefront</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>swbf2</code></td>
+    <td>Star Wars: Battlefront 2</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>swrc</code></td>
+    <td>Star Wars: Republic Commando</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>starbound</code></td>
+    <td>Starbound</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>starmade</code></td>
+    <td>StarMade</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>starsiege</code></td>
+    <td>Starsiege (2009)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>suicidesurvival</code></td>
+    <td>Suicide Survival</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>svencoop</code></td>
+    <td>Sven Coop</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>swat4</code></td>
+    <td>SWAT 4</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>synergy</code></td>
+    <td>Synergy</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>tacticalops</code></td>
+    <td>Tactical Ops</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>takeonhelicopters</code></td>
+    <td>Take On Helicopters (2011)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>teamfactor</code></td>
+    <td>Team Factor</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>tf2</code></td>
+    <td>Team Fortress 2</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>tfc</code></td>
+    <td>Team Fortress Classic</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>teamspeak2</code></td>
+    <td>Teamspeak 2</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>teamspeak3</code></td>
+    <td>Teamspeak 3</td>
+    </tr>
+    <tr>
+    <td><code>terminus</code></td>
+    <td>Terminus</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>terraria</code><br><code>tshock</code></td>
+    <td>Terraria - TShock (2011)</td>
+    </tr>
+    <tr>
+    <td><code>forrest</code></td>
+    <td>The Forrest (2014)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>hidden</code></td>
+    <td>The Hidden (2005)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>nolf</code></td>
+    <td>The Operative: No One Lives Forever (2000)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>ship</code></td>
+    <td>The Ship</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>graw</code></td>
+    <td>Tom Clancy's Ghost Recon Advanced Warfighter (2006)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>graw2</code></td>
+    <td>Tom Clancy's Ghost Recon Advanced Warfighter 2 (2007)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>thps3</code></td>
+    <td>Tony Hawk's Pro Skater 3</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>thps4</code></td>
+    <td>Tony Hawk's Pro Skater 4</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>thu2</code></td>
+    <td>Tony Hawk's Underground 2</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>towerunite</code></td>
+    <td>Tower Unite</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>trackmania2</code></td>
+    <td>Trackmania 2</td>
+    </tr>
+    <tr>
+    <td><code>trackmaniaforever</code></td>
+    <td>Trackmania Forever</td>
+    </tr>
+    <tr>
+    <td><code>tremulous</code></td>
+    <td>Tremulous</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>tribes1</code></td>
+    <td>Tribes 1: Starsiege</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>tribesvengeance</code></td>
+    <td>Tribes: Vengeance</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>tron20</code></td>
+    <td>Tron 2.0</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>turok2</code></td>
+    <td>Turok 2</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>universalcombat</code></td>
+    <td>Universal Combat</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>unreal</code></td>
+    <td>Unreal</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>ut</code></td>
+    <td>Unreal Tournament</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>ut2003</code></td>
+    <td>Unreal Tournament 2003</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>ut2004</code></td>
+    <td>Unreal Tournament 2004</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>ut3</code></td>
+    <td>Unreal Tournament 3</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>unturned</code></td>
+    <td>unturned</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>urbanterror</code></td>
+    <td>Urban Terror</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>v8supercar</code></td>
+    <td>V8 Supercar Challenge</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>ventrilo</code></td>
+    <td>Ventrilo</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>vcmp</code></td>
+    <td>Vice City Multiplayer</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>vietcong</code></td>
+    <td>Vietcong</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>vietcong2</code></td>
+    <td>Vietcong 2</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>warsow</code></td>
+    <td>Warsow</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>wheeloftime</code></td>
+    <td>Wheel of Time</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>wolfenstein2009</code></td>
+    <td>Wolfenstein 2009</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>wolfensteinet</code></td>
+    <td>Wolfenstein: Enemy Territory</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>xpandrally</code></td>
+    <td>Xpand Rally</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>zombiemaster</code></td>
+    <td>Zombie Master</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><code>zps</code></td>
+    <td>Zombie Panic: Source</td>
+    <td></td>
+    </tr>
+    </tbody>
+    </table>
+   
