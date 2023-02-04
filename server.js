@@ -1,150 +1,145 @@
-const express = require('express');
-const app = express();
-const http = require('http');
-app.use(express.static('public'));
-app.listen(8000)
-var Ddos = require('ddos')
-    var ddos = new Ddos({burst:3,limit:4,maxcount:15,maxexpiry:120,checkinterval:1,testmode:false,responseStatus:429,errormessage:'Atmalan'});
-    app.use(ddos.express);
+const fastify = require('fastify')({ logger: true });
+const path = require('path');;
+const Gamedig = require('gamedig');
 
-app.get('/api/:oyun/kullanicilar/:ip/:port', (request, response) => {
-  const Gamedig = require('gamedig');
+fastify.register(require('@fastify/static'), {
+  root: path.join(__dirname, 'public'),
+  prefix: '/public/', // optional: default '/'
+});
+
+
+fastify.get('/api/:oyun/kullanicilar/:ip/:port', (request, reply) => {
   var oyun = request.params.oyun
   var ip = request.params.ip
   var port = request.params.port
-Gamedig.query({
+  Gamedig.query({
     type: oyun,
     host: ip,
     port: port
-}).then((state, error) => {
-const json = {Oyuncular: `${state.players.map(player => player.name)}` }
-    response.json(json)
-}).catch((error) => {
-    response.json(error)
-});
+  }).then((state, error) => {
+    const json = { Oyuncular: `${state.players.map(player => player.name)}` }
+    reply
+      .code(200)
+      .header('Content-Type', 'application/json; charset=utf-8')
+      .send(json)
+  }).catch((error) => {
+    reply.send(error)
+  });
 })
 
 
 
 
-app.get('/api/:oyun/isim/:ip/:port', (request, response) => {
-  const Gamedig = require('gamedig');
+fastify.get('/api/:oyun/isim/:ip/:port', (request, reply) => {
   var oyun = request.params.oyun
   var ip = request.params.ip
   var port = request.params.port
-Gamedig.query({
+  Gamedig.query({
     type: oyun,
     host: ip,
     port: port
-}).then((state, error) => {
-const json = {Sunucu_İsmi: `${state.name}` }
-    response.json(json)
-}).catch((error) => {
-    response.json(error)
-});
+  }).then((state, error) => {
+    const json = { Sunucu_İsmi: `${state.name}` }
+    reply
+      .code(200)
+      .header('Content-Type', 'application/json; charset=utf-8')
+      .send(json)
+  }).catch((error) => {
+    reply.send(error)
+  });
 })
 
-app.get('/api/:oyun/map/:ip/:port', (request, response) => {
-  const Gamedig = require('gamedig');
+fastify.get('/api/:oyun/map/:ip/:port', (request, reply) => {
   var oyun = request.params.oyun
   var ip = request.params.ip
   var port = request.params.port
-Gamedig.query({
+  Gamedig.query({
     type: oyun,
     host: ip,
     port: port
-}).then((state) => {
-const json = {Map: `${state.map}` }
-    response.json(json)
-}).catch((error) => {
-    response.json(error)
-});
+  }).then((state) => {
+    const json = { Map: `${state.map}` }
+    reply
+      .code(200)
+      .header('Content-Type', 'application/json; charset=utf-8')
+      .send(json)
+  }).catch((error) => {
+    reply.send(error)
+  });
 })
 
 
-app.get('/api/:oyun/online/:ip/:port', (request, response) => {
-  const Gamedig = require('gamedig');
-  var query = require('game-server-query');
+fastify.get('/api/:oyun/online/:ip/:port', (request, reply) => {
   var oyun = request.params.oyun
   var ip = request.params.ip
   var port = request.params.port
-Gamedig.query({
+  Gamedig.query({
     type: oyun,
     host: ip,
     port: port
-}).then((state) => {
-const json = { Maks: `${state.maxplayers}`,  Online: `${state.players.length}` }
-    response.json(json)
-}).catch((error) => {
-    response.json(error)
-});
+  }).then((state) => {
+    const json = { Maks: `${state.maxplayers}`, Online: `${state.players.length}` }
+    reply
+      .code(200)
+      .header('Content-Type', 'application/json; charset=utf-8')
+      .send(json)
+  }).catch((error) => {
+    reply.send(error)
+  });
 })
 
-app.get('/api/:oyun/ping/:ip/:port', (request, response) => {
-  const Gamedig = require('gamedig');
-  var query = require('game-server-query');
+fastify.get('/api/:oyun/ping/:ip/:port', (request, reply) => {
   var oyun = request.params.oyun
   var ip = request.params.ip
   var port = request.params.port
-Gamedig.query({
+  Gamedig.query({
     type: oyun,
     host: ip,
     port: port
-}).then((state) => {
-   const json = {Ping: `${state.ping}` }
-    response.json(json)
-}).catch((error) => {
-    response.json(error)
-});
+  }).then((state) => {
+    const json = { Ping: `${state.ping}` }
+    reply
+      .code(200)
+      .header('Content-Type', 'application/json; charset=utf-8')
+      .send(json)
+  }).catch((error) => {
+    reply.send(error)
+  });
 })
 
-app.get('/api/:oyun/bilgi/:ip/:port', (request, response) => {
-  const Gamedig = require('gamedig');
-  var query = require('game-server-query');
+fastify.get('/api/:oyun/bilgi/:ip/:port', (request, reply) => {
   var oyun = request.params.oyun
   var ip = request.params.ip
   var port = request.params.port
-Gamedig.query({
+  Gamedig.query({
     type: oyun,
     host: ip,
     port: port
-}).then((state) => {
-    response.json(state.raw)
-})
-})
-
-
-const router = express.Router();
-const path = require('path');
-router.get('/',function(req,res){
-  res.sendFile(path.join(__dirname+'/index.html'));
-  //__dirname : It will resolve to your project folder.
-});
-
-
-router.get('/kullanim',function(req,res){
-  res.sendFile(path.join(__dirname+'/kullanımbilgi.html'));
-  //__dirname : It will resolve to your project folder.
-});
-
-
-
-console.log("basladim")
-app.use('/', router);
-app.use('/kullanim', router);
-
-app.get('/', (res, req) => {
-
-
- var Ddos = require('ddos')
-    var ddos = new Ddos({burst:3,limit:4,maxcount:15,maxexpiry:120,checkinterval:1,testmode:false,responseStatus:429,errormessage:'atmalan'});
-    app.use(ddos.express);
+  }).then((state) => {
+    reply
+      .code(200)
+      .header('Content-Type', 'application/json; charset=utf-8')
+      .send(state.raw)
+  }).catch((error) => {
+    reply.send(error)
+  });
 })
 
-app.get('/kullanim', (res, req) => {
-
-
- var Ddos = require('ddos')
-    var ddos = new Ddos({burst:3,limit:4,maxcount:15,maxexpiry:120,checkinterval:1,testmode:false,responseStatus:429,errormessage:'atmalan'});
-    app.use(ddos.express);
+fastify.get('/', function (req, reply) {
+  reply.sendFile('index.html')
 })
+
+fastify.get('/kullanim', function (req, reply) {
+  reply.sendFile('kullanımbilgi.html')
+})
+
+const start = async () => {
+  try {
+    await fastify.listen({ port: 3000 })
+    console.log(`${fastify.server.address().port} portundan başladım`)
+  } catch (err) {
+    fastify.log.error(err)
+    process.exit(1)
+  }
+}
+start()
